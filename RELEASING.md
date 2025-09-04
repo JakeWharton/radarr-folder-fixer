@@ -1,39 +1,37 @@
-Release Process
-===============
+# Release Process
 
- 1. Update `Cargo.toml` with new version number.
+1. Update the `version` in `build.gradle` to the release version.
 
- 2. Build and test
+2. Update the `CHANGELOG.md`:
+   1. Change the `Unreleased` header to the release version.
+   2. Add a link URL to ensure the header link works.
+   3. Add a new `Unreleased` section to the top.
 
-    ```
-    $ docker build .
-    ```
+3. Commit
 
- 3. Update `CHANGELOG.md` with new version information.
+   ```
+   $ git commit -am "Prepare version X.Y.Z"
+   ```
 
- 4. Update `README.md` with any new information.
+4. Tag
 
- 5. Commit version finalization.
+   ```
+   $ git tag -am "Version X.Y.Z" X.Y.Z
+   ```
 
-    ```
-    $ git commit -am "Version X.Y.Z"
-    ```
+5. Update the `version` in `build.gradle` to the next "SNAPSHOT" version.
 
-    (Replacing X.Y.Z with the actual release version.)
+6. Commit
 
- 6. Tag Git SHA.
+   ```
+   $ git commit -am "Prepare next development version"
+   ```
 
-    ```
-    $ git tag -a X.Y.Z -m 'Version X.Y.Z'
-    ```
+7. Push!
 
-    (Replacing X.Y.Z with the actual release version.)
+   ```
+   $ git push && git push --tags
+   ```
 
- 7. Push commits and tag to GitHub.
-
-    ```
-    $ git push
-    $ git push --tags
-    ```
-
-    This will release to Docker Hub and crates.io.
+   This will trigger a GitHub Action workflow which will create a GitHub release with the binary zip
+   and upload the container to Docker Hub and GitHub container registry.
