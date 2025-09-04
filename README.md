@@ -45,7 +45,7 @@ services:
       - "RADARR_FOLDER_FIXER_CRON=0 * * * *"
       #Optional:
       - "RADARR_FOLDER_FIXER_HC_ID=..."
-      - "RADARR_FOLDER_FIXER_HC_HOTS=..."
+      - "RADARR_FOLDER_FIXER_HC_HOST=..."
 ```
 
 Note: You may want to specify an explicit version rather than `latest`.
