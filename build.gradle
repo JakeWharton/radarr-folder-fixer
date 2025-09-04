@@ -1,0 +1,53 @@
+import org.jetbrains.kotlin.gradle.dsl.JvmTarget
+import org.jetbrains.kotlin.gradle.tasks.KotlinJvmCompile
+
+buildscript {
+	dependencies {
+		classpath libs.kotlin.gradlePlugin
+		classpath libs.kotlin.serializationPlugin
+		classpath libs.poko.gradlePlugin
+	}
+	repositories {
+		mavenCentral()
+		gradlePluginPortal()
+	}
+}
+
+apply plugin: 'org.jetbrains.kotlin.jvm'
+apply plugin: 'org.jetbrains.kotlin.plugin.serialization'
+apply plugin: 'dev.drewhamilton.poko'
+apply plugin: 'application'
+
+version = '0.1.0-SNAPSHOT'
+
+kotlin {
+	explicitApi()
+}
+
+dependencies {
+	implementation libs.clikt
+	implementation libs.cardiologist
+	implementation libs.retrofit.core
+	implementation libs.retrofit.converter.kxs
+	implementation libs.okhttp.core
+	implementation libs.okhttp.loggingInterceptor
+	implementation libs.kotlinx.serialization.json
+}
+
+application {
+	mainClass = 'com.jakewharton.radarr.folderfixer.Main'
+}
+
+tasks.withType(JavaCompile).configureEach { task ->
+	task.sourceCompatibility = '1.8'
+	task.targetCompatibility = '1.8'
+}
+
+tasks.withType(KotlinJvmCompile).configureEach { task ->
+	task.compilerOptions {
+		jvmTarget = JvmTarget.JVM_1_8
+		freeCompilerArgs.add('-Xjdk-release=8')
+		freeCompilerArgs.add('-Xjvm-default=all')
+		freeCompilerArgs.add('-opt-in=kotlin.time.ExperimentalTime')
+	}
+}

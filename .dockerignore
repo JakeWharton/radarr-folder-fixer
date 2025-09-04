@@ -1,0 +1,10 @@
+/.editorconfig
+/.git
+/.gitignore
+/.github
+/.gradle
+/.idea
+/.kotlin
+/build
+/LICENSE.txt
+/*.md
