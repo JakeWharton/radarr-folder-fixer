@@ -17,4 +17,3 @@ retrofit-converter-kxs = { module = "com.squareup.retrofit2:converter-kotlinx-se
 
 clikt = "com.github.ajalt.clikt:clikt:5.0.3"
 cardiologist = "io.github.kevincianfarini.cardiologist:cardiologist:0.8.0"
-poko-gradlePlugin = "dev.drewhamilton.poko:poko-gradle-plugin:0.19.3"
