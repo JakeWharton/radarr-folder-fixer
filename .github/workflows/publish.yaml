@@ -27,7 +27,8 @@ jobs:
       - uses: actions/upload-artifact@v4
         with:
           name: radarr-folder-fixer.zip
-          path: build/distributions/radarr-folder-fixer.zip
+          path: build/distributions/radarr-folder-fixer-*.zip
+          if-no-files-found: error
 
       - uses: crazy-max/ghaction-docker-meta@v1
         id: docker_meta
