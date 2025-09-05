@@ -16,7 +16,7 @@ apply plugin: 'org.jetbrains.kotlin.jvm'
 apply plugin: 'org.jetbrains.kotlin.plugin.serialization'
 apply plugin: 'application'
 
-version = '0.1.1'
+version = '0.2.0-SNAPSHOT'
 
 kotlin {
 	explicitApi()
