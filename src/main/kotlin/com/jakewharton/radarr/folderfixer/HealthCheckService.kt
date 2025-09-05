@@ -3,6 +3,7 @@ package com.jakewharton.radarr.folderfixer
 import okhttp3.HttpUrl
 import okhttp3.OkHttpClient
 import okhttp3.Request
+import okhttp3.RequestBody
 
 internal class HealthCheckService(
 	private val host: HttpUrl,
@@ -26,7 +27,7 @@ internal class HealthCheck(
 			.addPathSegment("start")
 			.build()
 
-		client.newCall(Request(url = startUrl, method = "POST")).execute()
+		client.newCall(Request(url = startUrl, method = "POST", body = RequestBody.EMPTY)).execute()
 
 		return Started(url, client)
 	}
@@ -36,7 +37,7 @@ internal class HealthCheck(
 		private val client: OkHttpClient,
 	) {
 		fun complete() {
-			client.newCall(Request(url = url, method = "POST")).execute()
+			client.newCall(Request(url = url, method = "POST", body = RequestBody.EMPTY)).execute()
 		}
 	}
 }
