@@ -2,7 +2,7 @@
 
 package com.jakewharton.radarr.folderfixer
 
-import com.github.ajalt.clikt.command.CoreSuspendingCliktCommand
+import com.github.ajalt.clikt.command.SuspendingCliktCommand
 import com.github.ajalt.clikt.command.main
 import com.github.ajalt.clikt.parameters.options.convert
 import com.github.ajalt.clikt.parameters.options.counted
@@ -37,7 +37,7 @@ public suspend fun main(vararg args: String) {
 private class RadarrFolderFixerCommand(
 	private val clock: Clock,
 	private val timeZone: TimeZone,
-) : CoreSuspendingCliktCommand(name = "radarr-folder-fixer") {
+) : SuspendingCliktCommand(name = "radarr-folder-fixer") {
 	private val host by option(envvar = "RADARR_FOLDER_FIXER_HOST")
 		.convert { it.toHttpUrl() }
 		.required()
