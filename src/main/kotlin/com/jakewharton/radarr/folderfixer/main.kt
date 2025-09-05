@@ -132,12 +132,12 @@ private class RadarrFolderFixerCommand(
 
 		val tags = service.listTags(apiKey)
 		suspend fun findOrCreateTag(name: String): Long {
-			tags.find { it.label == tag }?.let { tag ->
+			tags.find { it.label == name }?.let { tag ->
 				return tag.id
 			}
 
 			print("Creating tag $name…")
-			val created = service.createTag(apiKey, Tag(0, tag))
+			val created = service.createTag(apiKey, Tag(0, name))
 			println(" ${created.id}")
 			return created.id
 		}
