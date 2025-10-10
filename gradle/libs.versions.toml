@@ -1,6 +1,6 @@
 [versions]
 kotlin = "2.2.20"
-okhttp = "5.2.0"
+okhttp = "5.2.1"
 retrofit = "3.0.0"
 
 [libraries]
