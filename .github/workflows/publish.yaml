@@ -24,7 +24,7 @@ jobs:
 
       - run: ./gradlew distZip
 
-      - uses: actions/upload-artifact@v5
+      - uses: actions/upload-artifact@v6
         with:
           name: radarr-folder-fixer.zip
           path: build/distributions/radarr-folder-fixer-*.zip
