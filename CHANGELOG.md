@@ -3,7 +3,7 @@
 ## [Unreleased]
 [Unreleased]: https://github.com/JakeWharton/radarr-folder-fixer/compare/0.1.1...HEAD
 
-Nothing yet!
+* New: Linux Arm variant of Docker container.
 
 
 ## [0.1.1] - 2025-09-05
