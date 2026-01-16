@@ -15,5 +15,5 @@ okhttp-loggingInterceptor = { module = "com.squareup.okhttp3:logging-interceptor
 retrofit-core = { module = "com.squareup.retrofit2:retrofit", version.ref = "retrofit" }
 retrofit-converter-kxs = { module = "com.squareup.retrofit2:converter-kotlinx-serialization", version.ref = "retrofit" }
 
-clikt = "com.github.ajalt.clikt:clikt:5.0.3"
+clikt = "com.github.ajalt.clikt:clikt:5.1.0"
 cardiologist = "io.github.kevincianfarini.cardiologist:cardiologist:0.8.0"
